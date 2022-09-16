@@ -1,0 +1,30 @@
+.keyboardGrid {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+.backLink {
+    margin-top: 20px;
+    width: 240px;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+}
+
+.website {
+    text-decoration: underline;
+}
+
+.keybImg {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+}
