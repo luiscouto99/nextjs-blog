@@ -47,7 +47,7 @@ export async function getStaticProps() {
     const allKeyboardsData = getSortedKeyboardsData()
     return {
         props: {
-            allKeyboardsData: allKeyboardsData
+            allKeyboardsData,
         }
     }
 }
