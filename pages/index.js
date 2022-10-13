@@ -5,12 +5,58 @@ import Link from 'next/link'
 import { Footer } from '../components/footer/footer'
 import { Header } from '../components/header/header'
 
-import styles from './index.module.css'
-import sharedStyles from "../styles/styles.module.css"
+import { Container, Main } from '../styles/sharedStyles'
+
+import styled from 'styled-components'
+
+const LandingSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+`;
+
+const LandingInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  & a {
+    margin-top: 20px;
+    width: 240px;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center; 
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 48px;
+`;
+
+const Separator = styled.div`
+  height: 6px;
+  width: 72px;
+  background-color: black;
+`;
+
+const SubTitle = styled.h3`
+  font-size: 32px;
+  font-weight: normal;
+`;
+
+const Description = styled.p`
+  font-size: 20px;
+`;
 
 export default function Home() {
   return (
-    <div className={sharedStyles.container}>
+    <Container>
       <Head>
         <title>Keyboards</title>
         <link rel="icon" href="/favicon.ico" />
@@ -18,88 +64,22 @@ export default function Home() {
 
       <Header />
 
-      <main className={sharedStyles.main}>
-        <section className={styles.landing}>
+      <Main>
+        <LandingSection>
           <Image src="/images/sonnet.jpg" height={764} width={480} alt="sonnet keyboard" />
-          <div className={styles.landingText}>
-            <h2>The Sonnet</h2>
-            <div></div>
-            <h3>Versatility like no other</h3>
-            <p>Defined by its stunning accent and graceful side profile, the Sonnet is Mode's Design most customizable keyboard, packaged in a 75% form-factor.</p>
-            <Link href="/keyboards/1">Take a look</Link>
-          </div>
-        </section>
-      </main>
+          <LandingInfo>
+            <Title>The Sonnet</Title>
+            <Separator />
+            <SubTitle>Versatility like no other</SubTitle>
+            <Description>
+              Defined by its stunning accent and graceful side profile, the Sonnet is Mode's Design most customizable keyboard, packaged in a 75% form-factor.
+            </Description>
+            <Link href="/keyboards/sonnet">Take a look</Link>
+          </LandingInfo>
+        </LandingSection>
+      </Main>
 
       <Footer />
-
-
-      <style jsx>{`
-        /* .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        } */
-
-        header {
-          width: 100%;
-          height: 60px;
-          border-bottom: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+    </Container>
   )
 }

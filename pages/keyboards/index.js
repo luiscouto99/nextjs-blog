@@ -8,8 +8,18 @@ import Head from "next/head"
 import { getKeyboardData, getSortedKeyboardsData } from '../../lib/keyboards'
 
 import styles from "./keyboards.module.css";
-import sharedStyles from "../../styles/styles.module.css"
+import { Container, Main } from '../../styles/sharedStyles'
 
+import styled from 'styled-components'
+import { KeyboardCard } from "../../components/keyboardCard/keyboardCard";
+
+const KeyboardGrid = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 20px;
+    justify-content: center;
+`;
 
 const myLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`
@@ -21,24 +31,19 @@ export const KeyboardList = ({ allKeyboardsData }) => {
             <Head>
                 <title>{getKeyboardData.name}</title>
             </Head>
-            <div className={sharedStyles.container}>
+            <Container>
                 <Header />
-                <main className={sharedStyles.main}>
-                    <div className={styles.keyboardGrid}>
+                <Main>
+                    <KeyboardGrid>
                         {
-                            allKeyboardsData.map(({ id, url, name }) => (
-                                <Link key={id} href={`/keyboards/${id}`}>
-                                    <div>
-                                        <Image src={url} alt="" width={360} height={360} loader={myLoader} className={styles.keybImg} />
-                                        <p>{name}</p>
-                                    </div>
-                                </Link>)
+                            allKeyboardsData.map(({ id, url, name }) => 
+                                <KeyboardCard key={id} id={id} url={url} name={name} loader={myLoader} />
                             )
                         }
-                    </div>
-                </main>
+                    </KeyboardGrid>
+                </Main>
                 <Footer />
-            </div>
+            </Container>
         </>
     );
 }

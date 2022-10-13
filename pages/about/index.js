@@ -1,15 +1,14 @@
 import { Header } from "../../components/header/header"
 import { Footer } from "../../components/footer/footer"
-import { Container } from "../../components/container/container"
-import { Main } from "../../components/main/main";
 import styles from "./about.module.css";
-import sharedStyles from '../../styles/styles.module.css'
+import {Container, Main} from '../../styles/sharedStyles'
+
 
 export const About = () => {
     return (
-        <div className={sharedStyles.container}>
+        <Container>
             <Header />
-            <main className={sharedStyles.main}>
+            <Main>
                 <section className={styles.aboutSection}>
                     <img src="/images/logo.png" alt="" />
 
@@ -25,9 +24,9 @@ export const About = () => {
                             </p>
                     </div>
                 </section>
-            </main>
+            </Main>
             <Footer />
-        </div>
+        </Container>
     )
 }
 
