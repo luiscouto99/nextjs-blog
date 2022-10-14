@@ -1,7 +1,6 @@
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
 
-import styles from "./keyboards.module.css"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -17,6 +16,24 @@ const ImageContainer = styled.div`
     position: relative;
 `;
 
+const KeybInfo = styled.p``;
+
+const KeybLink = styled.a`
+    text-decoration: underline;
+`;
+
+const BackLink = styled.a`
+    margin-top: 20px;
+    width: 240px;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 8px 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+`;
 
 export const KeyboardDetail = ({ keyboardData }) => {
     return (
@@ -26,16 +43,14 @@ export const KeyboardDetail = ({ keyboardData }) => {
                 <ImageContainer>
                     <Image src={keyboardData.url} layout='fill' objectFit='cover' />
                 </ImageContainer>
-                <p>Name: {keyboardData.name}</p>
-                <p>Maker: {keyboardData.maker}</p>
-                <a href={keyboardData.website} className={styles.website}>Website</a>
+                <KeybInfo>Name: {keyboardData.name}</KeybInfo>
+                <KeybInfo>Maker: {keyboardData.maker}</KeybInfo>
+                <KeybLink href={keyboardData.website}>Website</KeybLink>
 
                 <div dangerouslySetInnerHTML={{ __html: keyboardData.contentHtml }} />
 
                 <Link href="/keyboards" passHref >
-                    <a className={styles.backLink}>
-                        Back to Keyboard List
-                    </a>
+                    <BackLink>Back to Keyboard List</BackLink>
                 </Link>
             </Main>
             <Footer />

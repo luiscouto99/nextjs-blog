@@ -1,13 +1,10 @@
 import { Header } from "../../components/header/header";
 import { Footer } from "../../components/footer/footer";
 
-import Link from "next/link"
-import Image from "next/image"
 import Head from "next/head"
 
 import { getKeyboardData, getSortedKeyboardsData } from '../../lib/keyboards'
 
-import styles from "./keyboards.module.css";
 import { Container, Main } from '../../styles/sharedStyles'
 
 import styled from 'styled-components'
