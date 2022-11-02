@@ -4,7 +4,7 @@ This project was created with [Next.js](https://nextjs.org/learn).
 
 ## Summary:
 
-This project was developed with Reactçs Next.js framework and designed in Figma, as a way of training and improving my Frontend skills.
+This project was developed with React.js Next.js framework and designed in Figma, as a way of training and improving my Frontend skills.
 
 ***
 
